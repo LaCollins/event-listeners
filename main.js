@@ -2,7 +2,7 @@ const pies = [
     {
         pie: 'Lemon Maringue',
         image: './images/lemon.jpg',
-        instructor: 'Callen',
+        instructor: 'Callan',
         iceCream: 'Lemon Sorbet'
     },
     {
@@ -20,7 +20,7 @@ const pies = [
     {
         pie: 'Pecan Pie',
         image:  './images/pecan.jpg',
-        instructor: 'Callen',
+        instructor: 'Callan',
         iceCream: 'Vanilla'
     },
     {
@@ -39,20 +39,98 @@ const pies = [
 ]
 
 const printToDom = (toPrint, divId) => {
-    document.getElementById(divId).innerHTML += toPrint;
+    document.getElementById(divId).innerHTML = toPrint;
 }
 
 const pieBuilder = (piesArray) => {
+    let domString = '';
     for (let i = 0; i < piesArray.length; i++) {
         const pieCard = piesArray[i];
-        const domString = `
+        domString += `
         <div class="card">
             <h2>${pieCard.pie}</h2>
             <img src="${pieCard.image}" alt="Image of ${pieCard.pie}" />
         </div>
         `;
-        printToDom(domString, 'pie-zone');
+
     }
+    printToDom(domString, 'pie-zone');
 }
 
-pieBuilder(pies);
+document.getElementById('Zoe').addEventListener('click', (e) => {
+    const instructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const newPie = pies[i];
+        if (newPie.instructor === instructor) {
+            selectedPies.push(newPie);
+        }
+    }
+
+    pieBuilder(selectedPies);
+})
+
+document.getElementById('Michael').addEventListener('click', (e) => {
+    const instructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const newPie = pies[i];
+        if (newPie.instructor === instructor) {
+            selectedPies.push(newPie);
+        }
+    }
+
+    pieBuilder(selectedPies);
+})
+
+document.getElementById('Callan').addEventListener('click', (e) => {
+    const instructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const newPie = pies[i];
+        if (newPie.instructor === instructor) {
+            selectedPies.push(newPie);
+        }
+    }
+
+    pieBuilder(selectedPies);
+})
+
+document.getElementById('Greg').addEventListener('click', (e) => {
+    const instructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const newPie = pies[i];
+        if (newPie.instructor === instructor) {
+            selectedPies.push(newPie);
+        }
+    }
+
+    pieBuilder(selectedPies);
+})
+
+document.getElementById('All').addEventListener('click', (e) => {
+    const instructor = e.target.id;
+        if (instructor === 'All') {
+            pieBuilder(pies);
+        }
+})
+
+// pieBuilder(pies);
+
+//Buttonclick event example
+
+const buttonClick = (e) => {
+    const instructor = e.target.id;
+    const selectedPies = [];
+    for (let i = 0; i < pies.length; i++) {
+        const newPie = pies[i];
+        if (newPie.instructor === instructor) {
+            selectedPies.push(newPie);
+        }
+    }
+
+    pieBuilder(selectedPies);
+}
+
+document.getElementById('All').addEventListener('click', buttonClick);
